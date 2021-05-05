@@ -1,0 +1,17 @@
+<h2>Sandwich List</h2>
+
+<article>
+  <section *ngFor="let sandwich of sandwiches | async">
+    <h4>
+      <a [routerLink]="['/sandwiches', sandwich.id]"> {{ sandwich.name }}</a>
+    </h4>
+    <p>
+      <strong>Type:</strong>
+      {{ sandwich.vege ? "🍃" : "🥩" }}
+    </p>
+    <p>
+      <strong>Price:</strong>
+      {{ sandwich.price | currency }}
+    </p>
+  </section>
+</article>

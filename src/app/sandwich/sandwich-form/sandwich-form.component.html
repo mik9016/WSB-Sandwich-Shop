@@ -1,0 +1,72 @@
+<h2>Sandwich Form</h2>
+
+<form autocomplete="off" novalidate [formGroup]="sandwichForm">
+  <section>
+    <label>
+      Name
+      <input type="text" formControlName="name" />
+    </label>
+
+    <!-- <code>{{ sandwichForm.get('name').errors | json}}</code> -->
+
+    <p class="error" *ngIf="showErrors && sandwichForm.get('name').errors?.minlength">Nazwa kanapki jest za krótka.</p>
+    <p class="error" *ngIf="showErrors && sandwichForm.get('name').errors?.maxlength">Nazwa kanapki jest za długa.</p>
+  </section>
+
+  <section>
+    <label>
+      Ingredients
+      <!-- formGroupName, formControlName formArrayName -->
+      <ul formGroupName="ingredients">
+        <!-- 
+                    INPUT: { lettuce: flase, tomato: false, . . .  }
+                    OUTPUT:[ { key: 'lettuce', value: false }, {key: 'tomato', value: false}]
+                 -->
+        <li
+          *ngFor="
+            let ingriedient of sandwichForm.get('ingredients').value | keyvalue
+          "
+        >
+          <!--ingriedient = { key: 'lettuce', value: false } -->
+          <input
+            type="checkbox"
+            [formControlName]="ingriedient.key"
+            [value]="ingriedient.value"
+          />
+          {{ ingriedient.key }}
+        </li>
+      </ul>
+    </label>
+  </section>
+
+  <section>
+    <label>
+      Sauce
+      <select formControlName="sauce">
+        <option *ngFor="let sauce of sauces" [value]="sauce.value">
+          {{ sauce.label }}
+        </option>
+      </select>
+    </label>
+  </section>
+
+  <section>
+    <label>
+      Vege
+      <input type="radio" [value]="true" formControlName="vege" />Yes
+      <input type="radio" [value]="false" formControlName="vege" />No
+    </label>
+  </section>
+
+  <section>
+    <label>
+      Price
+      <input type="number" formControlName="price" />
+    </label>
+    <p class="error" *ngIf="showErrors && sandwichForm.get('price').errors?.max">Cena kanapki jest za wysoka.</p>
+  </section>
+
+  <section>
+    <button type="button" (click)="save()">Save</button>
+  </section>
+</form>

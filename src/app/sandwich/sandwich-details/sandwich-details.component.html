@@ -1,0 +1,21 @@
+<section *ngIf="sandwichDetails | async as sandwich">
+  <p>{{ sandwich.name }}</p>
+
+  <p><strong>Ingredients:</strong> {{ sandwich.ingredients.join(", ") }}</p>
+
+
+<p>
+    <strong>Sauce:</strong>{{sandwich.sauce}}
+    <!-- <img src="{{sandwich.sauce | sauce}}" alt="sauce"> -->
+</p>
+
+  <p>
+    <strong>Type:</strong>
+    {{ sandwich.vege ? "🍃" : "🥩" }}
+  </p>
+  <p>
+    <strong>Price:</strong>
+    {{ sandwich.price | currency }}
+  </p>
+
+</section>

@@ -1,0 +1,62 @@
+{
+  "sandwiches": [
+    {
+      "id": 1,
+      "name": "Hot Sanwich",
+      "ingredients": [
+        "lettuce",
+        "chorizo"
+      ],
+      "sauce": "mayo",
+      "vege": false,
+      "price": 19.99
+    },
+    {
+      "id": 2,
+      "name": "Vege Sanwich",
+      "ingredients": [
+        "lettuce",
+        "cheese",
+        "tomato"
+      ],
+      "sauce": "bbq",
+      "vege": true,
+      "price": 15.99
+    },
+    {
+      "id": 3,
+      "name": "Cheese Sandwich",
+      "ingredients": [
+        "cheese",
+        "lettuce"
+      ],
+      "sauce": "none",
+      "vege": true,
+      "price": 9.99
+    },
+    {
+      "name": "My Sandwich",
+      "ingredients": [
+        "chorizo",
+        "cheese",
+        "tomato"
+      ],
+      "sauce": "mayo",
+      "vege": false,
+      "price": 10.55,
+      "id": 4
+    },
+    {
+      "name": "Nastepna kanapka",
+      "ingredients": [
+        "lettuce",
+        "cheese",
+        "tomato"
+      ],
+      "sauce": "mayo",
+      "vege": true,
+      "price": 16.99,
+      "id": 5
+    }
+  ]
+}
