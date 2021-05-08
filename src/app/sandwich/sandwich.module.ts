@@ -7,11 +7,13 @@ import { SandwichListComponent } from './sandwich-list/sandwich-list.component';
 
 import { RouterModule,Routes } from '@angular/router';
 import { SandwichDetailsComponent } from './sandwich-details/sandwich-details.component';
+import { SandwichItemComponent } from './sandwich-item/sandwich-item.component';
 
 const routes: Routes = [
   {path:'sandwiches', component: SandwichListComponent},
-  {path:'sandwiches/:id', component: SandwichDetailsComponent},
   {path: 'sandwiches/form', component: SandwichFormComponent},
+  {path:'sandwiches/:id', component: SandwichDetailsComponent},
+ 
   
 ]
 
@@ -19,7 +21,8 @@ const routes: Routes = [
   declarations: [
     SandwichFormComponent,
     SandwichListComponent,
-    SandwichDetailsComponent
+    SandwichDetailsComponent,
+    SandwichItemComponent
   ],
   imports: [
     CommonModule,

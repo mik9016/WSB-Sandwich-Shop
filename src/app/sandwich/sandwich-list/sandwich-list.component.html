@@ -1,17 +1,26 @@
 <h2>Sandwich List</h2>
 
+<section>
+  <form [formGroup]="searchForm">
+    <input type="text"  formControlName="query"/>
+
+    <select formControlName="sort">
+      <option value="name">Name</option>
+      <option value="price">Price</option>
+    </select>
+
+    <select formControlName="order">
+      <option value="asc">Ascending</option>
+      <option value="desc">Descending</option>
+    </select>
+
+    <button type="button" (click)="find()">Find</button>
+  </form>
+</section>
+
 <article>
-  <section *ngFor="let sandwich of sandwiches | async">
-    <h4>
-      <a [routerLink]="['/sandwiches', sandwich.id]"> {{ sandwich.name }}</a>
-    </h4>
-    <p>
-      <strong>Type:</strong>
-      {{ sandwich.vege ? "🍃" : "🥩" }}
-    </p>
-    <p>
-      <strong>Price:</strong>
-      {{ sandwich.price | currency }}
-    </p>
-  </section>
+  <wsb-sandwich-item
+    *ngFor="let sandwich of sandwiches | async"
+    [sandwich]="sandwich"
+  ></wsb-sandwich-item>
 </article>

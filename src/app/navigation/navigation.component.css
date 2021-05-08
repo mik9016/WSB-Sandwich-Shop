@@ -1,0 +1,12 @@
+ul > li{
+    display: inline;
+    /* margin: 5vw; */
+  
+   
+}
+/* ul{
+    text-align: center;
+} */
+li + li {
+    margin-left: 1rem;
+}
